@@ -230,7 +230,7 @@ One thing you can always count on, is that the industry will keep evolving. It i
 
 ---
 
-[![stackoverflow width:560px](https://i.gyazo.com/7767da0ee24dbe63b0f1b814f700e92c.jpg)](https://gyazo.com/7767da0ee24dbe63b0f1b814f700e92c) [![levels width:560px](https://i.gyazo.com/cb6ad95451ee1cd6e92cba9db43b59bf.jpg)](https://gyazo.com/cb6ad95451ee1cd6e92cba9db43b59bf)
+[![stackoverflow width:560px](https://i.gyazo.com/7767da0ee24dbe63b0f1b814f700e92c.jpg)](https://survey.stackoverflow.co/2023/) [![levels width:560px](https://i.gyazo.com/cb6ad95451ee1cd6e92cba9db43b59bf.jpg)](https://www.levels.fyi/?compare=Citrix,UKG,American%20Express&track=Software%20Engineer)
 
 ---
 
@@ -281,15 +281,45 @@ The community is this industry's most valuable resource, do not take it for gran
 
 ---
 
-[![bg](./assets/jherr.png)](https://twitter.com/jherr)
+<style scoped>
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+  }
+  </style>
+
+[![jherr](./assets/jherr.png)](https://twitter.com/jherr)
 
 ---
 
-[![bg](./assets/jaffathecake.png)](https://twitter.com/jaffathecake)
+<style scoped>
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+  }
+  </style>
+
+[![jake](./assets/jaffathecake.png)](https://twitter.com/jaffathecake)
 
 ---
 
-[![bg](./assets/jensimmons.png)](https://twitter.com/jensimmons)
+<style scoped>
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+  }
+  </style>
+
+[![jen](./assets/jensimmons.png)](https://twitter.com/jensimmons)
 
 ---
 
