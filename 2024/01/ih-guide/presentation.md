@@ -391,5 +391,5 @@ Don't limit yourself to just a few devices, you could take what you learned here
 ![bg left:40%](https://media.giphy.com/media/b85mPT4Usz7fq/giphy.gif)
 
 ![profile width:180px](./assets/profile.webp)
-Where are you going next?
+Where to next?
 ![qr width:300px](./assets/qr.png)
