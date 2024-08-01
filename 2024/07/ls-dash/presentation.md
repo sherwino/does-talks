@@ -97,6 +97,14 @@ Dedicate a display to stay up to date with the latest sports statistics. Subscri
 
 ---
 
+![bg left](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWdrYzZhbXhsOGZ2eDVmbTExaGdwZmUwMTdlN25kMGM1ZGE3MXg3biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/wJQmzxnG1ERHV01k40/giphy.gif)
+
+**Canvas Dashboard**
+
+Create an interactive photo album or scratchbook where you could share photos with your family from within the dashboard.
+
+---
+
 ![bg right](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbm9kazljemRpbXFtejA2eHcwbzJidmNjNWxuOXU4bWN3dXg2Z204OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Zap6W7a0uSBGHmzdNA/giphy.gif)
 
 **Don't forget about the community.**
@@ -134,8 +142,9 @@ The Moon Suite will be a clientside web based application will leverage the webO
 
 **Compatability**
 
-M:S will support a wide range of LG webOS devices. 
-webOS 4 - webOS 24
+We will ensure that M:S will support a wide range of LG webOS devices (webOS 4 - webOS 24)
+
+![computer width:600px](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3B3Zng5YjF6eWZxMzJnMWs2eXJoeXliejMxZjdkODB3bGx0Mzh0NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uOIPFs2lFmUtLJqr8n/giphy.gif)
 
 ---
 
