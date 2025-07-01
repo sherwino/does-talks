@@ -46,7 +46,7 @@ theme: uncover
 
 ```text
 <!-- schema tag defines editable settings -->
-{% schema %}
+// schema
 {
   "name": "Hero banner",
   "settings": [
@@ -56,7 +56,7 @@ theme: uncover
     { "id": "show_button", "type": "checkbox", "label": "Show CTA" }
   ]
 }
-{% endschema %}
+// end schema
 ```
 
 - Declares UI controls
