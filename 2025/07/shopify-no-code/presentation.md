@@ -19,15 +19,13 @@ theme: uncover
 
 <!-- Shopify Dawn Theme Example -->
 
-![bg right:60%](https://source.unsplash.com/featured/?ecommerce,website)
+![bg right:60%](./assets/shopifylogo.png)
 
-#### Shopify Templates
+#### Shopify No Code Solution
 
-###### Schema-Driven No-Code Architecture
+###### Schema-Driven Low to No Code
 
 ---
-
-![bg left:60% contain](https://source.unsplash.com/featured/?code,developer)
 
 ##### Why No-Code Inspires Dev Patterns
 
@@ -39,8 +37,6 @@ theme: uncover
 | Support tickets for changes   | Self-service customization       |
 
 ---
-
-![bg right:55% contain](https://source.unsplash.com/featured/?shopify,theme)
 
 **Shopify Template**
 
@@ -65,8 +61,6 @@ theme: uncover
 
 ---
 
-![bg right:45% contain](https://source.unsplash.com/featured/?interface,controls)
-
 ##### Schema Types = UI Controls
 
 | Schema Type    | Generated UI Control  |
@@ -82,8 +76,6 @@ theme: uncover
 
 ---
 
-![bg contain](https://source.unsplash.com/featured/?json,editor)
-
 ##### Schema Powers Customization
 
 - No JS needed to create config-driven UI
@@ -92,8 +84,6 @@ theme: uncover
 - Encourages clean, modular section design
 
 ---
-
-![bg left:40% contain](https://source.unsplash.com/featured/?react,hydrogen)
 
 ### Shopify Hydrogen + React
 
@@ -136,8 +126,6 @@ HeroBanner.schema = {
 
 ---
 
-![bg right](https://source.unsplash.com/featured/?performance,bundle)
-
 ### Dev Takeaways
 
 **Architecture Pattern:**
@@ -155,8 +143,6 @@ Schema Definition → Theme Editor UI → Merchant Config → Storefront Render
 - Clean separation: structure (dev) vs. content (merchant)
 
 ---
-
-![bg left:50%](https://source.unsplash.com/featured/?developer,thinking)
 
 ### Want to Learn More?
 
