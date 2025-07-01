@@ -45,18 +45,16 @@ jobs:
           echo "Building presentation: $file"
           echo "Output directory: $dir"
           
-          # Change to the presentation directory to isolate the build
-          cd "$dir"
+          # Use explicit file path to ensure only one file is processed
+          output_file="$dir/index.html"
+          echo "Input file: $file"
+          echo "Output file: $output_file"
           
-          # Build the presentation from within its directory
-          echo "Working directory: $(pwd)"
-          npx marp presentation.md --output index.html --html
+          # Build with explicit paths to prevent multiple file detection
+          npx marp "$file" --output "$output_file" --html
           
-          echo "✅ Built: $dir/index.html"
+          echo "✅ Built: $output_file"
           echo "---"
-          
-          # Return to root directory
-          cd - > /dev/null
         done
         
     - name: Setup Pages
