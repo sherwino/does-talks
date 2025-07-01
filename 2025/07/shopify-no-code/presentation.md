@@ -21,9 +21,9 @@ theme: uncover
 
 ![bg right:60%](https://source.unsplash.com/featured/?ecommerce,website)
 
-#### Shopify + Liquid
+#### Shopify Templates
 
-###### Schema-Driven Templating in Action
+###### Schema-Driven No-Code Architecture
 
 ---
 
@@ -31,33 +31,54 @@ theme: uncover
 
 ##### Why No-Code Inspires Dev Patterns
 
-- Schema = Data model for components
-- Liquid templates render dynamic content
-- Dawn theme showcases component modularity
-- JSON-based configuration = editable UI for non-devs
+| Traditional Approach          | Schema-Driven Approach           |
+| ----------------------------- | -------------------------------- |
+| Hardcoded components          | Schema-driven sections           |
+| Developer edits = code deploy | Merchant edits = instant preview |
+| Rigid layouts                 | Configurable templates           |
+| Support tickets for changes   | Self-service customization       |
 
 ---
 
 ![bg right:55% contain](https://source.unsplash.com/featured/?shopify,theme)
 
-**Liquid Template**
+**Shopify Template**
 
-```liquid
-{%- raw -%}
+```text
+<!-- schema tag defines editable settings -->
 {% schema %}
 {
   "name": "Hero banner",
   "settings": [
-    { "id": "heading", "type": "text", "label": "Heading" }
+    { "id": "heading", "type": "text", "label": "Heading" },
+    { "id": "image", "type": "image_picker", "label": "Background" },
+    { "id": "color", "type": "color", "label": "Text Color" },
+    { "id": "show_button", "type": "checkbox", "label": "Show CTA" }
   ]
 }
 {% endschema %}
-{%- endraw -%}
 ```
 
 - Declares UI controls
 - Drives Shopify Theme Editor interface
 - Rendered HTML auto-syncs with JSON config
+
+---
+
+![bg right:45% contain](https://source.unsplash.com/featured/?interface,controls)
+
+##### Schema Types = UI Controls
+
+| Schema Type    | Generated UI Control  |
+| -------------- | --------------------- |
+| `text`         | Text input field      |
+| `image_picker` | Media library browser |
+| `color`        | Color picker widget   |
+| `checkbox`     | Toggle switch         |
+| `select`       | Dropdown menu         |
+| `range`        | Slider with min/max   |
+
+💡 **One JSON schema = Dynamic admin interface**
 
 ---
 
@@ -69,6 +90,35 @@ theme: uncover
 - Editor populates inputs from schema
 - Code and settings live together
 - Encourages clean, modular section design
+
+---
+
+![bg left:40% contain](https://source.unsplash.com/featured/?react,hydrogen)
+
+### Shopify Hydrogen + React
+
+**Schema-driven components in modern frameworks**
+
+```tsx
+// Hydrogen component with schema
+export const HeroBanner = ({ heading, image, color }) => (
+  <section style={{ color }}>
+    <img src={image} alt="" />
+    <h1>{heading}</h1>
+  </section>
+);
+
+HeroBanner.schema = {
+  name: "Hero Banner",
+  settings: [
+    { id: "heading", type: "text", label: "Heading" },
+    { id: "image", type: "image_picker", label: "Background" },
+    { id: "color", type: "color", label: "Text Color" },
+  ],
+};
+```
+
+✅ React components + Schema definitions = Best of both worlds
 
 ---
 
@@ -90,10 +140,19 @@ theme: uncover
 
 ### Dev Takeaways
 
-- Schema = dynamic, declarative UI
-- Templates = flexible, portable layout
-- Reduces bundle size vs SPA
-- Devs can abstract for reuse
+**Architecture Pattern:**
+Schema Definition → Theme Editor UI → Merchant Config → Storefront Render
+
+**Apply This To:**
+
+- CMSs, page builders, design systems
+- Any user-configurable components
+
+**Benefits:**
+
+- Reduces support burden (merchants self-serve)
+- Maintains performance (server-side rendering)
+- Clean separation: structure (dev) vs. content (merchant)
 
 ---
 
@@ -101,7 +160,7 @@ theme: uncover
 
 ### Want to Learn More?
 
-- Liquid schema docs: [shopify.dev](https://shopify.dev/docs/themes/architecture/sections/section-schema)
+- Schema docs: [shopify.dev](https://shopify.dev/docs/themes/architecture/sections/section-schema)
 - Hydrogen + React streaming: [shopify.dev/custom-storefronts/hydrogen](https://shopify.dev/docs/custom-storefronts/hydrogen)
 
 💡 Use this structure in any templating system.
