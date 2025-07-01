@@ -43,6 +43,7 @@ theme: uncover
 **Liquid Template**
 
 ```liquid
+{%- raw -%}
 {% schema %}
 {
   "name": "Hero banner",
@@ -51,6 +52,7 @@ theme: uncover
   ]
 }
 {% endschema %}
+{%- endraw -%}
 ```
 
 - Declares UI controls
