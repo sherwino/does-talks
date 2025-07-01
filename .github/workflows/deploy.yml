@@ -49,18 +49,23 @@ jobs:
           echo "Markdown files in $dir:"
           find "$dir" -name "*.md" -type f
           
-          # Use absolute paths and disable config file scanning
-          abs_input="$(realpath "$file")"
-          abs_output="$(realpath "$dir")/index.html"
+          # Change to the presentation directory to isolate the build
+          echo "Changing to directory: $dir"
+          cd "$dir"
           
-          echo "Absolute input: $abs_input"
-          echo "Absolute output: $abs_output"
+          # Check what markdown files are visible from this directory
+          echo "Markdown files visible from $(pwd):"
+          find . -maxdepth 1 -name "*.md" -type f
           
-          # Build with absolute paths and no config file scanning
-          npx marp "$abs_input" --output "$abs_output" --html --no-config-file
+          # Build the presentation from within its directory
+          echo "Running: npx marp presentation.md --output index.html --html --no-config-file"
+          npx marp presentation.md --output index.html --html --no-config-file
           
-          echo "✅ Built: $abs_output"
+          echo "✅ Built: $dir/index.html"
           echo "---"
+          
+          # Return to root directory
+          cd - > /dev/null
         done
         
     - name: Setup Pages
