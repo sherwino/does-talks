@@ -45,18 +45,18 @@ jobs:
           echo "Building presentation: $file"
           echo "Output directory: $dir"
           
-          # Use absolute paths to avoid marp confusion
-          input_file=$(realpath "$file")
-          output_file=$(realpath "$dir")/index.html
+          # Change to the presentation directory to isolate the build
+          cd "$dir"
           
-          echo "Input: $input_file"
-          echo "Output: $output_file"
-          
-          # Build the presentation with explicit paths
-          npx marp "$input_file" -o "$output_file"
+          # Build the presentation from within its directory
+          echo "Working directory: $(pwd)"
+          npx marp presentation.md --output index.html --html
           
           echo "✅ Built: $dir/index.html"
           echo "---"
+          
+          # Return to root directory
+          cd - > /dev/null
         done
         
     - name: Setup Pages
