@@ -13,6 +13,9 @@ npm run build
 # Build only presentations (skip index generation)
 npm run build-presentations
 
+# Build a single presentation
+npm run build-single 2024/01/ih-guide/presentation.md
+
 # Generate only the landing page index
 npm run generate-index
 ```
@@ -104,7 +107,32 @@ When you push to `main`:
 ✅ **Fast deployments** - Pre-built files deploy instantly  
 ✅ **Version control** - Built presentations are tracked in git  
 ✅ **Offline preview** - Built presentations work without a server  
-✅ **Automatic workflow** - Git hooks handle building automatically
+✅ **Automatic workflow** - Git hooks handle building automatically  
+✅ **Efficient rebuilds** - Only changed presentations are rebuilt
+
+### Smart Git Hooks
+
+The git hooks are optimized to avoid unnecessary work:
+
+- **Only rebuilds changed presentations** - Not all presentations every time
+- **Regenerates index only when needed** - When presentations actually change
+- **Fast commits** - Only processes what's actually modified
+- **Clear feedback** - Shows exactly what's being built
+
+Example hook output:
+
+```
+📝 Modified presentation files detected:
+2024/01/ih-guide/presentation.md
+
+🔨 Building: 2024/01/ih-guide/presentation.md
+   ✅ Success: 2024/01/ih-guide/index.html
+
+🏗️  Regenerating index page...
+   ✅ Index updated
+
+✅ Presentations built and added to commit
+```
 
 ## 📝 Creating Presentations
 
@@ -133,6 +161,7 @@ More content...
 | ----------------------------- | -------------------------------------------- |
 | `npm run build`               | Build all presentations + generate index     |
 | `npm run build-presentations` | Build presentations only                     |
+| `npm run build-single <path>` | Build a single presentation                  |
 | `npm run generate-index`      | Generate landing page only                   |
 | `npm run setup-hooks`         | Install git hooks for auto-building          |
 | `npm run dev`                 | Build everything and show completion message |

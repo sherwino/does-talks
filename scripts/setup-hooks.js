@@ -4,22 +4,55 @@ const path = require("path");
 const preCommitHook = `#!/bin/sh
 # Auto-build presentations when presentation.md files are modified
 
-# Check if any presentation.md files have been modified
-if git diff --cached --name-only | grep -q "presentation\\.md$"; then
-  echo "📝 Presentation files detected, building presentations..."
-  npm run build
+# Get list of modified presentation.md files
+changed_presentations=$(git diff --cached --name-only | grep "presentation\\.md$")
+
+if [ -n "$changed_presentations" ]; then
+  echo "📝 Modified presentation files detected:"
+  echo "$changed_presentations"
+  echo ""
   
-  # Check if build was successful
-  if [ $? -eq 0 ]; then
-    # Add the built files to the commit
-    find . -name "index.html" -path "*/20*/*" -exec git add {} \\;
-    git add index.html
-    
-    echo "✅ Presentations built and added to commit"
-  else
-    echo "❌ Build failed - commit aborted"
+  build_failed=false
+  
+  # Build each changed presentation individually
+  echo "$changed_presentations" | while read -r file; do
+    if [ -n "$file" ]; then
+      dir=$(dirname "$file")
+      echo "🔨 Building: $file"
+      
+      # Change to presentation directory and build
+      cd "$dir"
+      if npx marp presentation.md --output index.html --html --no-config-file >/dev/null 2>&1; then
+        echo "   ✅ Success: $dir/index.html"
+        git add index.html
+      else
+        echo "   ❌ Failed: $file"
+        build_failed=true
+      fi
+      cd - >/dev/null
+    fi
+  done
+  
+  # Check if any builds failed
+  if [ "$build_failed" = true ]; then
+    echo ""
+    echo "❌ Some presentations failed to build - commit aborted"
     exit 1
   fi
+  
+  # Regenerate index page (since presentations may have changed)
+  echo ""
+  echo "🏗️  Regenerating index page..."
+  if node scripts/generate-index.js >/dev/null 2>&1; then
+    echo "   ✅ Index updated"
+    git add index.html
+  else
+    echo "   ❌ Index generation failed - commit aborted"
+    exit 1
+  fi
+  
+  echo ""
+  echo "✅ Presentations built and added to commit"
 fi
 `;
 
@@ -52,14 +85,13 @@ try {
     );
   }
 
-  console.log("✅ Git pre-commit hook installed successfully!");
+  console.log("✅ Optimized git pre-commit hook installed successfully!");
   console.log("");
-  console.log("📝 The hook will automatically:");
-  console.log(
-    "   - Build presentations when presentation.md files are modified"
-  );
-  console.log("   - Add built index.html files to your commit");
-  console.log("   - Abort commit if build fails");
+  console.log("📝 The hook will now:");
+  console.log("   - Only build presentations that have actually changed");
+  console.log("   - Regenerate the index page if any presentations changed");
+  console.log("   - Add only the affected files to your commit");
+  console.log("   - Abort commit if any build fails");
   console.log("");
   console.log(
     "🔧 To disable the hook temporarily: mv .git/hooks/pre-commit .git/hooks/pre-commit.disabled"

@@ -6,6 +6,7 @@
   "scripts": {
     "build": "node scripts/build-presentations.js && node scripts/generate-index.js",
     "build-presentations": "node scripts/build-presentations.js",
+    "build-single": "node scripts/build-single.js",
     "generate-index": "node scripts/generate-index.js",
     "setup-hooks": "node scripts/setup-hooks.js",
     "marp": "marp $npm_config_path/presentation.md --watch --output $npm_config_path/index.html",
