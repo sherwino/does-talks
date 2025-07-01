@@ -2,9 +2,9 @@ name: Build and Deploy Presentations
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 # Allow one concurrent deployment
 concurrency:
@@ -20,50 +20,64 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "18"
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build presentations
-        run: |
-          # Find all presentation.md files and build them
-          find . -name "presentation.md" -type f | while read -r file; do
-            dir=$(dirname "$file")
-            echo "Building presentation in: $dir"
-            cd "$dir"
-            npx marp presentation.md --output index.html
-            cd - > /dev/null
-          done
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload entire repository
-          path: "."
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Build presentations
+      run: |
+        # Generate dynamic index page
+        node scripts/generate-index.js
+        
+        # Find all presentation.md files and build them individually
+        find . -name "presentation.md" -type f | while read -r file; do
+          dir=$(dirname "$file")
+          echo "Building presentation: $file"
+          echo "Output directory: $dir"
+          
+          # Use absolute paths to avoid marp confusion
+          input_file=$(realpath "$file")
+          output_file=$(realpath "$dir")/index.html
+          
+          echo "Input: $input_file"
+          echo "Output: $output_file"
+          
+          # Build the presentation with explicit paths
+          npx marp "$input_file" -o "$output_file"
+          
+          echo "✅ Built: $dir/index.html"
+          echo "---"
+        done
+        
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+      
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        # Upload entire repository
+        path: '.'
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
-
+    
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
+      
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

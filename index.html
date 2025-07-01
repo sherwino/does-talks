@@ -1,177 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Does Talks - Presentation Archive</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          sans-serif;
-        line-height: 1.6;
-        color: #333;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        min-height: 100vh;
-        padding: 2rem;
-      }
-
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background: white;
-        border-radius: 15px;
-        padding: 3rem;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      }
-
-      h1 {
-        text-align: center;
-        margin-bottom: 0.5rem;
-        color: #2c3e50;
-        font-size: 2.5rem;
-      }
-
-      .subtitle {
-        text-align: center;
-        color: #7f8c8d;
-        margin-bottom: 3rem;
-        font-size: 1.2rem;
-      }
-
-      .presentations {
-        display: grid;
-        gap: 1.5rem;
-      }
-
-      .year-section {
-        border-left: 4px solid #3498db;
-        padding-left: 1.5rem;
-        margin-bottom: 2rem;
-      }
-
-      .year-title {
-        font-size: 1.5rem;
-        color: #2c3e50;
-        margin-bottom: 1rem;
-        font-weight: 600;
-      }
-
-      .presentation-card {
-        background: #f8f9fa;
-        border-radius: 10px;
-        padding: 1.5rem;
-        margin-bottom: 1rem;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border: 1px solid #e9ecef;
-      }
-
-      .presentation-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      }
-
-      .presentation-link {
-        text-decoration: none;
-        color: inherit;
-        display: block;
-      }
-
-      .presentation-title {
-        font-size: 1.3rem;
-        color: #2c3e50;
-        margin-bottom: 0.5rem;
-        font-weight: 600;
-      }
-
-      .presentation-date {
-        color: #7f8c8d;
-        font-size: 0.9rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .presentation-description {
-        color: #555;
-        font-size: 0.95rem;
-      }
-
-      .footer {
-        text-align: center;
-        margin-top: 3rem;
-        padding-top: 2rem;
-        border-top: 1px solid #eee;
-        color: #7f8c8d;
-      }
-
-      .footer a {
-        color: #3498db;
-        text-decoration: none;
-      }
-
-      .footer a:hover {
-        text-decoration: underline;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 3rem;
+            font-size: 1.2rem;
+        }
+        
+        .presentations {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .year-section {
+            border-left: 4px solid #3498db;
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .year-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .presentation-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .presentation-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .presentation-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .presentation-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .presentation-date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .presentation-description {
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+            color: #7f8c8d;
+        }
+        
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .count {
+            background: #3498db;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <div class="container">
-      <h1>🎤 Does Talks</h1>
-      <p class="subtitle">A collection of presentations, slides, and talks</p>
-
-      <div class="presentations">
-        <div class="year-section">
-          <h2 class="year-title">2025</h2>
-          <div class="presentation-card">
-            <a href="./2025/07/shopify-no-code/" class="presentation-link">
-              <h3 class="presentation-title">Shopify No-Code Solutions</h3>
-              <p class="presentation-date">July 2025</p>
-              <p class="presentation-description">
-                Exploring no-code solutions and approaches for Shopify
-                development and customization.
-              </p>
-            </a>
-          </div>
+        <h1>🎤 Does Talks</h1>
+        <p class="subtitle">A collection of presentations, slides, and talks <span class="count">3 presentations</span></p>
+        
+        <div class="presentations">
+            
+            <div class="year-section">
+                <h2 class="year-title">2025</h2>
+                
+                <div class="presentation-card">
+                    <a href="./2025/07/shopify-no-code/" class="presentation-link">
+                        <h3 class="presentation-title">Shopify No Code</h3>
+                        <p class="presentation-date">July 2025</p>
+                        <p class="presentation-description">marp: false</p>
+                    </a>
+                </div>
+            </div>
+            <div class="year-section">
+                <h2 class="year-title">2024</h2>
+                
+                <div class="presentation-card">
+                    <a href="./2024/07/ls-dash/" class="presentation-link">
+                        <h3 class="presentation-title">Ls Dash</h3>
+                        <p class="presentation-date">July 2024</p>
+                        <p class="presentation-description">marp: false</p>
+                    </a>
+                </div>
+                <div class="presentation-card">
+                    <a href="./2024/01/ih-guide/" class="presentation-link">
+                        <h3 class="presentation-title">Learn</h3>
+                        <p class="presentation-date">January 2024</p>
+                        <p class="presentation-description">marp: true</p>
+                    </a>
+                </div>
+            </div>
         </div>
-
-        <div class="year-section">
-          <h2 class="year-title">2024</h2>
-          <div class="presentation-card">
-            <a href="./2024/07/ls-dash/" class="presentation-link">
-              <h3 class="presentation-title">LS Dashboard</h3>
-              <p class="presentation-date">July 2024</p>
-              <p class="presentation-description">
-                Dashboard design and development best practices.
-              </p>
-            </a>
-          </div>
-
-          <div class="presentation-card">
-            <a href="./2024/01/ih-guide/" class="presentation-link">
-              <h3 class="presentation-title">
-                The Ironhacker's Guide to the Galaxy
-              </h3>
-              <p class="presentation-date">January 2024</p>
-              <p class="presentation-description">
-                Don't Panic. Essential tips, tricks, and guidance for developers
-                starting their journey.
-              </p>
-            </a>
-          </div>
+        
+        <div class="footer">
+            <p>Built with ❤️ using <a href="https://marp.app/" target="_blank">Marp</a> • Deployed via GitHub Actions</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">Last updated: 7/1/2025</p>
         </div>
-      </div>
-
-      <div class="footer">
-        <p>
-          Built with ❤️ using
-          <a href="https://marp.app/" target="_blank">Marp</a> • Deployed via
-          GitHub Actions
-        </p>
-      </div>
     </div>
-  </body>
+</body>
 </html>

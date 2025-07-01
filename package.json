@@ -4,6 +4,7 @@
   "description": "A repo with all of the slides, decks, and docs used for presentations",
   "main": "index.js",
   "scripts": {
+    "generate-index": "node scripts/generate-index.js",
     "marp": "marp $npm_config_path/presentation.md --watch --output $npm_config_path/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
