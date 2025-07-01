@@ -45,15 +45,21 @@ jobs:
           echo "Building presentation: $file"
           echo "Output directory: $dir"
           
-          # Use explicit file path to ensure only one file is processed
-          output_file="$dir/index.html"
-          echo "Input file: $file"
-          echo "Output file: $output_file"
+          # Debug: Check what markdown files are in the directory
+          echo "Markdown files in $dir:"
+          find "$dir" -name "*.md" -type f
           
-          # Build with explicit paths to prevent multiple file detection
-          npx marp "$file" --output "$output_file" --html
+          # Use absolute paths and disable config file scanning
+          abs_input="$(realpath "$file")"
+          abs_output="$(realpath "$dir")/index.html"
           
-          echo "✅ Built: $output_file"
+          echo "Absolute input: $abs_input"
+          echo "Absolute output: $abs_output"
+          
+          # Build with absolute paths and no config file scanning
+          npx marp "$abs_input" --output "$abs_output" --html --no-config-file
+          
+          echo "✅ Built: $abs_output"
           echo "---"
         done
         
