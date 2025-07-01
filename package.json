@@ -4,8 +4,12 @@
   "description": "A repo with all of the slides, decks, and docs used for presentations",
   "main": "index.js",
   "scripts": {
+    "build": "node scripts/build-presentations.js && node scripts/generate-index.js",
+    "build-presentations": "node scripts/build-presentations.js",
     "generate-index": "node scripts/generate-index.js",
+    "setup-hooks": "node scripts/setup-hooks.js",
     "marp": "marp $npm_config_path/presentation.md --watch --output $npm_config_path/index.html",
+    "dev": "npm run build && echo 'Build complete. Presentations are ready!'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
